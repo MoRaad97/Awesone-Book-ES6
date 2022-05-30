@@ -1,12 +1,12 @@
-import { Store } from "./store.js";
-import { DateTime } from "./luxon.js";
+import Store, {} from './store.js';
+import { DateTime } from './luxon.js';
 // global values
 const listSection = document.querySelector('.list-section');
 const addSection = document.querySelector('.add-section');
 const contactSection = document.querySelector('.contact-section');
 
-export class CreatBook {
-  // variables 
+export default class CreatBook {
+  // variables
     // display books
     static displayBooks = () => {
       const books = Store.getBooks();
@@ -16,9 +16,9 @@ export class CreatBook {
       }
       // no books found
     }
-  
+
     // creat books and add them in the UI
-  
+
     static createBookElements = (book) => {
       const bookContainer = document.querySelector('.books');
       const bookDiv = document.createElement('div');
@@ -26,21 +26,21 @@ export class CreatBook {
       const authorName = document.createElement('h2');
       const btn = document.createElement('button');
       btn.classList.add('delete');
-  
+
       bookDiv.classList.add('container');
-  
+
       // Fill the elements
       bookName.innerText = book.title;
       authorName.innerText = book.author;
       btn.innerHTML = 'Delete';
-  
+
       // For showing the above staff in browser we have to append them
       bookDiv.append(bookName, authorName, btn);
-  
+
       // This div must also append to some where in HTML so
       bookContainer.appendChild(bookDiv);
     }
-  
+
     static openListPage = () => {
       const bookList = document.getElementById('list');
       bookList.addEventListener('click', () => {
@@ -49,7 +49,7 @@ export class CreatBook {
         contactSection.classList.add('hidden');
       });
     }
-  
+
     static openAddPage = () => {
       const bookList = document.getElementById('add');
       bookList.addEventListener('click', () => {
@@ -58,7 +58,7 @@ export class CreatBook {
         contactSection.classList.add('hidden');
       });
     }
-  
+
     static openContactPage = () => {
       const bookList = document.getElementById('contact');
       bookList.addEventListener('click', () => {
@@ -67,28 +67,25 @@ export class CreatBook {
         contactSection.classList.remove('hidden');
       });
     }
-  
+
     // remove logic
     static delete = (el) => {
       if (el.classList.contains('delete')) {
         el.parentElement.remove();
       }
     }
-  
+
     // clear fields
     static clearfields = () => {
       document.getElementById('title').value = '';
       document.getElementById('author').value = '';
     }
 
-    // data and time 
+    // data and time
     static dateTime = () => {
-      setInterval( () => {
-        const dateTimeDiv = document.getElementById('time-date')
-        dateTimeDiv.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_HUGE)
-      },500)
-   
+      setInterval(() => {
+        const dateTimeDiv = document.getElementById('time-date');
+        dateTimeDiv.innerText = DateTime.now().toLocaleString(DateTime.DATETIME_HUGE);
+      }, 500);
     }
-  }
-
-  
+}

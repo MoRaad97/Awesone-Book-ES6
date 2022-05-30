@@ -1,7 +1,6 @@
-import { Books } from "./books.js";
-import { CreatBook } from "./createbook.js";
-import { Store } from "./store.js";
-import { DateTime } from "./luxon.js";
+import Books, {} from './books.js';
+import CreatBook, {} from './createbook.js';
+import Store, {} from './store.js';
 
 // display books
 document.addEventListener('DOMContentLoaded', CreatBook.displayBooks);
@@ -40,6 +39,6 @@ CreatBook.openListPage();
 CreatBook.openAddPage();
 CreatBook.openContactPage();
 
-// Date and Time 
+// Date and Time
 
 CreatBook.dateTime();
