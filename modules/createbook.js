@@ -26,7 +26,7 @@ export default class CreatBook {
       const authorName = document.createElement('h2');
       const btn = document.createElement('button');
       btn.classList.add('delete');
-
+      btn.setAttribute('id', book.id)  
       bookDiv.classList.add('container');
 
       // Fill the elements

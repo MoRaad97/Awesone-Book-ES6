@@ -1,8 +1,12 @@
 export default class Store {
-    static bookLocalStorage = () => JSON.parse(localStorage.getItem('books'))
-
-    static getBooks = () => Store.bookLocalStorage()
-
+    static bookLocalStorage = () => {
+      return JSON.parse(localStorage.getItem('books'));
+    }
+  
+    static getBooks = () => {
+      return Store.bookLocalStorage();
+    }
+  
     static addBook = (book) => {
       const books = Store.bookLocalStorage() ? Store.bookLocalStorage() : [];
       if (Array.isArray(books)) {
@@ -10,10 +14,10 @@ export default class Store {
       }
       localStorage.setItem('books', JSON.stringify(books));
     }
-
-    static removeBook = (index) => {
-      const books = Store.getBooks();
-      books.splice(index, 1);
+  
+    static removeBook = (bookId) => {
+      let books = Store.getBooks();
+        books = books.filter((book) => book.id != bookId);
       localStorage.setItem('books', JSON.stringify(books));
     }
-}
+  }

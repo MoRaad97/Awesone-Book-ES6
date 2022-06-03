@@ -15,7 +15,8 @@ document.getElementById('book-form').addEventListener('submit', (event) => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   // create New book
-  const book = new Books(title, author);
+
+ const book = new Books(title, author, Date.now());
 
   // Add book to the page
   CreatBook.createBookElements(book);
@@ -30,8 +31,8 @@ document.getElementById('book-form').addEventListener('submit', (event) => {
 // Remove book
 
 document.querySelector('.books').addEventListener('click', (e) => {
+  Store.removeBook(e.target.getAttribute("id"));
   CreatBook.delete(e.target);
-  Store.removeBook();
 });
 
 // Display Pages Functions
