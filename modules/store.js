@@ -13,7 +13,8 @@ export default class Store {
 
     static removeBook = (bookId) => {
       let books = Store.getBooks();
-      books = books.filter((book) => book.id !== bookId);
+      // eslint-disable-next-line
+      books = books.filter((book) => book.id != bookId);
       localStorage.setItem('books', JSON.stringify(books));
     }
 }
