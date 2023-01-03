@@ -11,9 +11,9 @@
 - Css 
 - Javascript
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://moraad97.github.io/Awesome-Books/)
+[Netlify Live Demo Link](https://awesome-books-moraad.netlify.app/)
 
 
 
